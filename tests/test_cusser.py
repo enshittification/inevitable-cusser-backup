@@ -3,8 +3,8 @@
 import curses
 from functools import reduce
 
-from cusser import __version__
-from cusser._misc import _SUPPORTED_ATTRIBUTE_TAGS, _SUPPORTED_COLOR_TAGS, _app
+from a8c_cusser import __version__
+from a8c_cusser._misc import _SUPPORTED_ATTRIBUTE_TAGS, _SUPPORTED_COLOR_TAGS, _app
 
 
 def test_version():

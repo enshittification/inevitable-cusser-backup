@@ -37,29 +37,36 @@ $ pip install cusser
 ## Usage
 
 ```python
-In [1]: import curses
+In[1]:
+import curses
 
-In [2]: from cusser import Cusser
+In[2]:
+from a8c_cusser import Cusser
 
-In [3]: def app(stdscr) -> None:
-   ...:     """Start a new application."""
-   ...:     if not isinstance(stdscr, Cusser):
-   ...:         stdscr = Cusser(stdscr)
-   ...:
-   ...:     ultra_violet = (100, 83, 148)
-   ...:     x, y = 34, 12
-   ...:     stdscr.addstr(
-   ...:         f"\033[2J\033[{x};{y}H"
-   ...:         "\033[1;32mHello "
-   ...:         f"\033[;3;38;2;{';'.join(map(str, ultra_violet))}m"
-   ...:         "cusser"
-   ...:         "\033[m 🤬!"
-   ...:     )
-   ...:     stdscr.refresh()
-   ...:     stdscr.getch()
-   ...:
+In[3]:
 
-In [4]: curses.wrapper(app)
+
+def app(stdscr) -> None:
+    ...: """Start a new application."""
+    ...:
+    if not isinstance(stdscr, Cusser):
+        ...: stdscr = Cusser(stdscr)
+    ...:
+    ...: ultra_violet = (100, 83, 148)
+    ...: x, y = 34, 12
+    ...: stdscr.addstr(
+        ...:         f"\033[2J\033[{x};{y}H"
+    ...: "\033[1;32mHello "
+    ...:         f"\033[;3;38;2;{';'.join(map(str, ultra_violet))}m"
+    ...: "cusser"
+    ...:         "\033[m 🤬!"
+    ...:     )
+    ...: stdscr.refresh()
+    ...: stdscr.getch()
+    ...:
+
+
+In[4]: curses.wrapper(app)
 
 ```
 

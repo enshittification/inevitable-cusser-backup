@@ -5,7 +5,7 @@ from typing import Optional
 import ochre
 import pytest
 
-from cusser.color_manager import ColorManager
+from a8c_cusser.color_manager import ColorManager
 
 
 @pytest.fixture

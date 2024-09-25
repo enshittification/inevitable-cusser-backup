@@ -8,7 +8,7 @@ from typing import Callable, Text
 
 from stransi import Ansi
 
-from cusser import Cusser
+from a8c_cusser import Cusser
 
 
 

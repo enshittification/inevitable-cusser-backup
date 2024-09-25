@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "cusser"
+name = "a8c-cusser"
 version = "0.2.0"
 description = "A curses wrapper that understands ANSI escape code sequences"
 authors = ["Felipe S. S. Schneider <schneider.felipe@posgrad.ufsc.br>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/getcuia/cusser"
-repository = "https://github.com/getcuia/cusser"
+homepage = "https://github.com/Automattic/cusser"
+repository = "https://github.com/Automattic/cusser"
 keywords = [
     "ansi-escape-codes",
     "ansi",
@@ -32,7 +32,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 stransi = "^0.3.0"
 
 [tool.poetry.dev-dependencies]

@@ -1,6 +1,5 @@
 """Utilities for managing colors and color pairs in curses."""
 
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -69,16 +68,16 @@ class ColorManager(
 
     def add_color(self, color: Optional[ochre.Color], callback: bool = True) -> None:
         """Register a color with the color manager."""
-        if color in self.color_indices:
+        if color in self.color_indices or color.rgb in self.color_indices:
             return
 
-        self.color_indices[color] = self.next_color_index
+        self.color_indices[color.rgb] = self.next_color_index
         self.next_color_index += 1
         if callback and self.on_add_color:
             self.on_add_color(color, self)
 
     def add_pair(
-        self, pair: ochre.ColorPair, callback: bool = True, allow_zero: bool = False
+            self, pair: ochre.ColorPair, callback: bool = True, allow_zero: bool = False
     ) -> None:
         """Register a color pair with the color manager."""
         # We want background to be added first because curses tends to use the
@@ -99,10 +98,10 @@ class ColorManager(
 
     def discard_color(self, color: Optional[ochre.Color]) -> None:
         """Unregister a color from the color manager."""
-        if color not in self.color_indices:
+        if not color or color.rgb not in self.color_indices:
             return
 
-        del self.color_indices[color]
+        del self.color_indices[color.rgb]
 
     def discard_pair(self, pair: ochre.ColorPair) -> None:
         """Unregister a color pair from the color manager."""
@@ -112,7 +111,7 @@ class ColorManager(
         del self.pair_indices[pair]
 
     def add(
-        self, value: Optional[ochre.Color | ochre.ColorPair], allow_zero: bool = False
+            self, value: Optional[ochre.Color | ochre.ColorPair], allow_zero: bool = False
     ) -> None:
         """Register a color or color pair with the color manager."""
         if value is None or isinstance(value, ochre.Color):
@@ -135,8 +134,10 @@ class ColorManager(
 
     def __getitem__(self, value: Optional[ochre.Color | ochre.ColorPair]) -> int:
         """Return the index of a color or color pair."""
-        if value is None or isinstance(value, ochre.Color):
+        if value is None:
             return self.color_indices[value]
+        if isinstance(value, ochre.Color):
+            return self.color_indices[value.rgb]
 
         if isinstance(value, ochre.ColorPair):
             return self.pair_indices[value]

@@ -2,7 +2,7 @@
 [![Python package](https://github.com/getcuia/cusser/actions/workflows/python-package.yml/badge.svg)](https://github.com/getcuia/cusser/actions/workflows/python-package.yml)
 [![PyPI - License](https://img.shields.io/pypi/l/cusser)](https://github.com/getcuia/cusser/blob/main/LICENSE)
 
-## For of [cusser](https://github.com/getcuia/cusser#readme) with added support of Python 3.11+
+## Fork of [cusser](https://github.com/getcuia/cusser#readme) with added support of Python 3.11+
 
 # [cusser](https://github.com/getcuia/cusser#readme) 🤬
 

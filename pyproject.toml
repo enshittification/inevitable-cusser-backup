@@ -36,7 +36,7 @@ python = "^3.10"
 stransi = "^0.3.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.1"
+pytest = "^8.3"
 mypy = "^0.961"
 bandit = "^1.7.4"
 flake8 = "^4.0.1"
